@@ -1,10 +1,10 @@
 # AGENTS.md — Open Group (organization)
 
-This file is the global rule set for every repository in the `My-Clone-AI` organization (Open Group / Grupo Open). Each repo also has its own `AGENTS.md` for local startup, commands, and owners. The repo file wins on local paths and commands; this file wins on invariants.
+This file is the global rule set for every repository in the `open-group-ai` organization (Open Group / Grupo Open). Each repo also has its own `AGENTS.md` for local startup, commands, and owners. The repo file wins on local paths and commands; this file wins on invariants.
 
 Keep this file short. Put long guides in the owning repo and leave a pointer here.
 
-OpenClaw Controller / NSVX lives here (`openclaw`, `clone`, and related apps). Follow each repo’s own AGENTS.md (OpenClaw’s root file must stay under 20,000 characters).
+OpenClaw Controller / NSVX lives here (`openclaw`, `openclaw-nsvx`, `nsvx-web`, `grow-ops`, and related apps). Follow each repo’s own AGENTS.md (OpenClaw’s root file must stay under 20,000 characters).
 
 ## What every Open Group agent does
 
@@ -47,6 +47,14 @@ Append one JSON line per task to `.agents/harness/diagnostics/log.jsonl` (or `di
 - Agent-native by default (AgentOS directive). Do not lift `clone_session` or owner sessions into plugins or the gateway.
 - OpenClaw DEV gateway is `:18790`. Do not touch `:18789`.
 - Do not mix Open Group / Grupo Open product surfaces with Universe branding. Follow each app’s product rules (including adult vs SFW separation).
+
+## CI, branches, and repository hygiene
+
+- `develop` is the primary working branch unless a repository explicitly uses a single primary branch (`main` is production-only). Never force-push or delete remote branches.
+- Never use GitHub-hosted runner labels (`ubuntu-latest`, `macos-latest`, `windows-latest`, `macos-15`) or Git LFS.
+- Linux CI jobs run on `[self-hosted, Linux, X64, grow-ci, open-group-super-cluster]` and place caches under `${{ runner.temp }}`.
+- Run minimal incremental checks on diffs, never full test suites during deployment.
+- Never commit `node_modules/`, `vendor/`, `__pycache__/`, build outputs, screenshot/evidence dumps, or pure source-grep tests.
 
 ## Loops
 
