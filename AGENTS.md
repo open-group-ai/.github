@@ -1,6 +1,6 @@
 # AGENTS.md — Open Group (organization)
 
-This file is the global rule set for every repository in the `open-group-ai` organization (Open Group / Grupo Open). Each repo also has its own `AGENTS.md` for local startup, commands, and owners. The repo file wins on local paths and commands; this file wins on invariants.
+This file is the global rule set for every repository in the `open-group-ai` organization (Open Group / Grupo Open). Most repos also have their own `AGENTS.md` for local startup, commands, and owners (docs-*, docs-dev-* and index-* repos usually do not; this file then applies alone). The repo file wins on local paths and commands; this file wins on invariants.
 
 Keep this file short. Put long guides in the owning repo and leave a pointer here.
 
@@ -52,7 +52,7 @@ Append one JSON line per task to `.agents/harness/diagnostics/log.jsonl` (or `di
 
 - `develop` is the primary working branch unless a repository explicitly uses a single primary branch (`main` is production-only). Never force-push or delete remote branches.
 - Never use GitHub-hosted runner labels (`ubuntu-latest`, `macos-latest`, `windows-latest`, `macos-15`) or Git LFS.
-- Linux CI jobs run on `[self-hosted, Linux, X64, grow-ci, open-group-super-cluster]` and place caches under `${{ runner.temp }}`.
+- Linux CI jobs run on `[self-hosted, Linux, X64, grow-ci, open-group-super-cluster]` and place caches under `${{ runner.temp }}` (not available in job-level `env:`; set it in step `env:` or via `$GITHUB_ENV`).
 - Run minimal incremental checks on diffs, never full test suites during deployment.
 - Never commit `node_modules/`, `vendor/`, `__pycache__/`, build outputs, screenshot/evidence dumps, or pure source-grep tests.
 
