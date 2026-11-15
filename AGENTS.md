@@ -46,6 +46,7 @@ Append one JSON line per task to `.agents/harness/diagnostics/log.jsonl` (or `di
 - No Cursor, no CloudAgent, no Origin. Code lands through the Group Open pipeline (Master Grow: Codex, Muse, Claude) as PRs onto `develop`.
 - Agent-native by default (AgentOS directive). Do not lift `clone_session` or owner sessions into plugins or the gateway.
 - OpenClaw DEV gateway is `:18790`. Do not touch `:18789`.
+- Never write model names, versions or effort levels into service/unit descriptions, timer names, UI labels or prose lists. Routing lives only in the engine config (`engines.json`, `config.json`); anything else goes stale.
 - Do not mix Open Group / Grupo Open product surfaces with Universe branding. Follow each app’s product rules (including adult vs SFW separation).
 
 ## CI, branches, and repository hygiene
