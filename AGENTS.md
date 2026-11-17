@@ -51,7 +51,7 @@ Append one JSON line per task to `.agents/harness/diagnostics/log.jsonl` (or `di
 
 ## CI, branches, and repository hygiene
 
-- `develop` is the primary working branch unless a repository explicitly uses a single primary branch (`main` is production-only). Never force-push or delete remote branches.
+- `develop` is the primary working branch unless a repository explicitly uses a single primary branch (`main` is production). Production deployment is permitted: finalized work → `develop` → `main` → incremental production deploy → verify (owner policy 2026-11-17, `/etc/grupo-open/PRODUCTION-DEPLOY-POLICY.md`). Never force-push; delete remote branches only after they are merged and obsolete.
 - Never use GitHub-hosted runner labels (`ubuntu-latest`, `macos-latest`, `windows-latest`, `macos-15`) or Git LFS.
 - Linux CI jobs run on `[self-hosted, Linux, X64, grow-ci, open-group-super-cluster]` and place caches under `${{ runner.temp }}`.
 - Run minimal incremental checks on diffs, never full test suites during deployment.
