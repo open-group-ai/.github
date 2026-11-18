@@ -66,3 +66,9 @@ Append one JSON line per task to `.agents/harness/diagnostics/log.jsonl` (or `di
 ## Cleanup
 
 Before ending a session: startup path still works, verification still runs, progress is honest, no half-finished step is undocumented, next session can run without a manual repair.
+
+## Deployment operating rule (Miguel, 18 Nov 2026)
+
+"A requested application fix includes implementation, immediate development publication, focused validation, production deployment, and verification of the live result. Repair deployment infrastructure as part of the task. Do not stop at development or request renewed approval for routine releases already covered by the user’s authorization. Use sequential integration and minimal tests covering the complete release impact. Never mark a production fix complete without production evidence."
+
+"Fixed in dev" is intermediate; a production fix is done only when the live revision matches the release and the changed workflow works on the public URL (mobile and desktop). Repair a missing publisher, runner, credential reference or host key as part of the task (repeatable provisioning; host keys verified from an authenticated source and pinned, never by asking Miguel, never by disabling verification). Explicit per-request `[merge-only]` / `[no deploy]` markers, auth, secrets, health checks and pre-migration backups stay. Canonical: `/etc/grupo-open/PRODUCTION-DEPLOY-POLICY.md` (`open-group-ai/openbot-master` `policies/`).
