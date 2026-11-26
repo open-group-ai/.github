@@ -21,6 +21,17 @@ Last verified: 2026-11-26 10:50 Asia/Jerusalem, from `ss -ltnp` + systemd cgroup
 
 Other app blocks are listed in the live table below; promote them to this curated table when the owning app confirms its block.
 
+## prod-adult-eu-01 (51.77.85.223) — allocated app blocks (curated)
+
+Adult apps only (separate host from prod-public-eu-01; numbers may repeat across hosts without clashing).
+
+| App | Env | Block | Live listeners (role) | Source |
+|---|---|---|---|---|
+| Open Porn | dev | 18800–18849 | 18800 api slot A (`openporn-dev-api`), 18801 worker health (`openporn-dev-worker`), 18811 redis (`openporn-dev-redis`); 18802 api slot B (zero-downtime switch, reserved); 18810 local-test PostgreSQL on build hosts only | openporn `deploy/lib.sh`, `deploy/README.dev-host.md` |
+| Open Porn | prod | 18850–18899 | 18850 api slot A (`openporn-prod-api`), 18851 worker health (`openporn-prod-worker`), 18861 redis (`openporn-prod-redis`); 18852 api slot B (reserved) | openporn `deploy/lib.sh`, `deploy/prod/openporn.conf` |
+
+Verified 2026-11-26 12:50 Asia/Jerusalem with `ss -ltnp` on prod-adult-eu-01: 18800, 18801, 18811, 18850, 18851, 18861 listening; 18802/18852 idle (B slots).
+
 ## Known irregularities (2026-11-26, not yet fixed)
 
 - 19031 / 19032 / 19098: OpenMap API processes (`node apps/api/src/server.ts`) running outside systemd in login sessions (19031 dev with deleted cwd, 19032 prod, 19098 places bootstrap). Owner: OpenMap; move into units or stop.
@@ -176,3 +187,4 @@ Other app blocks are listed in the live table below; promote them to this curate
 ## Changelog
 
 - 2026-11-26: Registry created (no prior fleet registry existed in open-group-ai, master-execute, prod-public-eu-01 or Mac48 agent-system). Resolved the OpenLegal/OpenOrder dev conflict: OpenLegal keeps prod 19801–19803 and dev moves to 19831–19833; 19811–19814 formally reassigned to OpenOrder dev; OpenOrder prod 19821–19824. No running service was changed.
+- 2026-11-26: Registered Open Porn on prod-adult-eu-01 (dev 18800–18849, prod 18850–18899; live 18800/18801/18811 and 18850/18851/18861, B slots 18802/18852). No running service was changed.
