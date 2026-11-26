@@ -19,6 +19,7 @@ Last verified: 2026-11-26 10:50 Asia/Jerusalem, from `ss -ltnp` + systemd cgroup
 | OpenHealth | prod / dev | 19701–19703 / 19711–19713 | api, worker, redis | systemd units |
 | OpenBook | prod / dev | 20101–20103 / 20111–20113 | none yet (requested by openbook.run 2026-11-26; free at verification) | openbook.run |
 | OpenStar | prod / dev | 20201–20203 / 20211–20213 | none yet (claim by openstar.run 2026-11-26: api, worker, reserved; free at `ss -ltnp` 2026-11-26 12:32 Asia/Jerusalem) | openstar.run |
+| OpenArt | prod / dev | 20401–20409 / 20411–20419 | none yet (claim by openart.run 2026-11-26: api blue/green, worker health, renderer, reserved; free at `ss -ltnp` 2026-11-26 12:58 Asia/Jerusalem) | openart.run |
 
 Other app blocks are listed in the live table below; promote them to this curated table when the owning app confirms its block.
 
@@ -191,3 +192,4 @@ Verified 2026-11-26 12:50 Asia/Jerusalem with `ss -ltnp` on prod-adult-eu-01: 18
 
 - 2026-11-26: Registry created (no prior fleet registry existed in open-group-ai, master-execute, prod-public-eu-01 or Mac48 agent-system). Resolved the OpenLegal/OpenOrder dev conflict: OpenLegal keeps prod 19801–19803 and dev moves to 19831–19833; 19811–19814 formally reassigned to OpenOrder dev; OpenOrder prod 19821–19824. No running service was changed.
 - 2026-11-26: Registered Open Porn on prod-adult-eu-01 (dev 18800–18849, prod 18850–18899; live 18800/18801/18811 and 18850/18851/18861, B slots 18802/18852). No running service was changed.
+- 2026-11-26: OpenArt claims prod 20401–20409 and dev 20411–20419 (free at verification; nothing bound yet).
