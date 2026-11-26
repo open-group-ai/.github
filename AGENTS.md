@@ -49,6 +49,7 @@ Append one JSON line per task to `.agents/harness/diagnostics/log.jsonl` (or `di
 - Agent-native by default (AgentOS directive). Do not lift `clone_session` or owner sessions into plugins or the gateway.
 - OpenClaw DEV gateway is `:18790`. Do not touch `:18789`.
 - Never write model names, versions or effort levels into service/unit descriptions, timer names, UI labels or prose lists. Routing lives only in the engine config (`engines.json`, `config.json`); anything else goes stale.
+  - Exception (owner directive, Miguel, 26 Nov 2026 12:27 Asia/Jerusalem): the required fleet models may be named in docs and prose. UI/design uses Claude Opus 5.5 medium; coding uses Codex GPT Sol 6.2 medium; all in-app inference uses GPT 6.1 Terra low only. Never use Haiku or Luna, including fallbacks, dev and tests. If the required model is unavailable, fail closed with no substitution. Runtime routing still lives only in engine config.
 - Do not mix Open Group / Grupo Open product surfaces with Universe branding. Follow each app’s product rules (including adult vs SFW separation).
 
 ## CI, branches, and repository hygiene
