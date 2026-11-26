@@ -18,6 +18,7 @@ Last verified: 2026-11-26 10:50 Asia/Jerusalem, from `ss -ltnp` + systemd cgroup
 | OpenBrain | dev | 19911–19918, 19921–19922 | 19911 api, 19912 web, 19913 worker, 19917 redis, 19918 model bridge; 19921/19922 green slots (nginx) | `/etc/nginx/conf.d/openbrain-dev-upstreams.conf` |
 | OpenHealth | prod / dev | 19701–19703 / 19711–19713 | api, worker, redis | systemd units |
 | OpenBook | prod / dev | 20101–20103 / 20111–20113 | none yet (requested by openbook.run 2026-11-26; free at verification) | openbook.run |
+| OpenVisa | prod / dev | 20201–20209 / 20211–20219 (block 20200–20219) | none yet (block assigned by Boss 2026-11-26; `ss -ltnp` on prod-public-eu-01 shows 20200–20219 free at 12:39 Asia/Jerusalem) | openvisa.run |
 
 Other app blocks are listed in the live table below; promote them to this curated table when the owning app confirms its block.
 
@@ -175,4 +176,5 @@ Other app blocks are listed in the live table below; promote them to this curate
 
 ## Changelog
 
+- 2026-11-26: OpenVisa claims 20200–20219 (prod 20201–20209, dev 20211–20219). Nothing bound yet; no other entry changed.
 - 2026-11-26: Registry created (no prior fleet registry existed in open-group-ai, master-execute, prod-public-eu-01 or Mac48 agent-system). Resolved the OpenLegal/OpenOrder dev conflict: OpenLegal keeps prod 19801–19803 and dev moves to 19831–19833; 19811–19814 formally reassigned to OpenOrder dev; OpenOrder prod 19821–19824. No running service was changed.
