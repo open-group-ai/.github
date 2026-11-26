@@ -18,7 +18,8 @@ Last verified: 2026-11-26 10:50 Asia/Jerusalem, from `ss -ltnp` + systemd cgroup
 | OpenBrain | dev | 19911–19918, 19921–19922 | 19911 api, 19912 web, 19913 worker, 19917 redis, 19918 model bridge; 19921/19922 green slots (nginx) | `/etc/nginx/conf.d/openbrain-dev-upstreams.conf` |
 | OpenHealth | prod / dev | 19701–19703 / 19711–19713 | api, worker, redis | systemd units |
 | OpenBook | prod / dev | 20101–20103 / 20111–20113 | none yet (requested by openbook.run 2026-11-26; free at verification) | openbook.run |
-| OpenVideo | prod / dev | 20201–20205 / 20211–20215 | none yet (claimed by openvideo.run 2026-11-26; free at verification 12:50 Asia/Jerusalem via ss -ltnp). Roles: N01 web, N02 api, N03 worker health, N04 render worker, N05 redis | open-group-ai/openvideo AGENTS.md |
+| OpenStar | prod / dev | 20201–20203 / 20211–20213 | none yet (claim by openstar.run 2026-11-26: api, worker, reserved; free at `ss -ltnp` 2026-11-26 12:32 Asia/Jerusalem) | openstar.run |
+| OpenVideo | prod / dev | 20301–20305 / 20311–20315 | none yet (claimed by openvideo.run 2026-11-26; free at `ss -ltnp` 2026-11-26 12:54 Asia/Jerusalem, no nginx/systemd references). Roles: N01 web, N02 api, N03 worker health, N04 render worker, N05 redis | open-group-ai/openvideo AGENTS.md |
 
 Other app blocks are listed in the live table below; promote them to this curated table when the owning app confirms its block.
 
@@ -187,6 +188,8 @@ Verified 2026-11-26 12:50 Asia/Jerusalem with `ss -ltnp` on prod-adult-eu-01: 18
 
 ## Changelog
 
-- 2026-11-26: OpenVideo claims prod 20201–20205 and dev 20211–20215 on prod-public-eu-01 (nothing listening and no nginx/systemd references at 12:50 Asia/Jerusalem).
+- 2026-11-26: OpenVideo claims prod 20301–20305 and dev 20311–20315 on prod-public-eu-01 (moved from 202xx after OpenStar #11; nothing listening and no nginx/systemd references at 12:54 Asia/Jerusalem).
+- 2026-11-26: OpenStar claims prod 20201–20203 and dev 20211–20213 (free at verification; nothing bound yet).
+
 - 2026-11-26: Registry created (no prior fleet registry existed in open-group-ai, master-execute, prod-public-eu-01 or Mac48 agent-system). Resolved the OpenLegal/OpenOrder dev conflict: OpenLegal keeps prod 19801–19803 and dev moves to 19831–19833; 19811–19814 formally reassigned to OpenOrder dev; OpenOrder prod 19821–19824. No running service was changed.
 - 2026-11-26: Registered Open Porn on prod-adult-eu-01 (dev 18800–18849, prod 18850–18899; live 18800/18801/18811 and 18850/18851/18861, B slots 18802/18852). No running service was changed.
