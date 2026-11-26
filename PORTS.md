@@ -17,14 +17,13 @@ Last verified: 2026-11-26 10:50 Asia/Jerusalem, from `ss -ltnp` + systemd cgroup
 | OpenBrain | prod | 19901–19907, 19923–19924 | 19901 api, 19902 web, 19903 worker, 19907 redis; 19923/19924 green slots (nginx) | `/etc/nginx/conf.d/openbrain-prod-upstreams.conf` |
 | OpenBrain | dev | 19911–19918, 19921–19922 | 19911 api, 19912 web, 19913 worker, 19917 redis, 19918 model bridge; 19921/19922 green slots (nginx) | `/etc/nginx/conf.d/openbrain-dev-upstreams.conf` |
 | OpenHealth | prod / dev | 19701–19703 / 19711–19713 | api, worker, redis | systemd units |
+| OpenMap | prod + dev (shared block) | 19021–19039 | 19021 api dev (`openmap-api@dev.socket`), 19022 api prod (`openmap-api@prod.socket`), both nginx upstreams; 19023–19028 reserved (api alt slots); 19029 shadow api for the engine gate (`openmap-api-shadow`, not routed); 19031–19034 reserved; 19035 Photon tunnel to knowledge-ca-01 (`openmap-engine-tunnel`); 19036 Valhalla tunnel to knowledge-ca-01 (`openmap-engine-tunnel`); 19037–19039 reserved (engines) | openmap `deploy/engine-host/ppe/openmap-engine-tunnel.service`, `/etc/openmap/{dev,prod}.env`, `/etc/nginx/sites-available/openmap-{dev,prod}.conf` |
 | OpenBook | prod / dev | 20101–20103 / 20111–20113 | none yet (requested by openbook.run 2026-11-26; free at verification) | openbook.run |
 
 Other app blocks are listed in the live table below; promote them to this curated table when the owning app confirms its block.
 
 ## Known irregularities (2026-11-26, not yet fixed)
 
-- 19031 / 19032 / 19098: OpenMap API processes (`node apps/api/src/server.ts`) running outside systemd in login sessions (19031 dev with deleted cwd, 19032 prod, 19098 places bootstrap). Owner: OpenMap; move into units or stop.
-- 18002: `openmap-engine-tunnel` (Valhalla forward) sits inside OpenFix's 18001–18004 block.
 - 19714 / 19715: `openfix-dev-redis` / `openfix-prod-redis` sit in the 197xx range used by OpenHealth (OpenHealth uses 19701–19703, 19711–19713; no live clash).
 
 ## prod-public-eu-01 — live listeners (snapshot)
@@ -174,5 +173,7 @@ Other app blocks are listed in the live table below; promote them to this curate
 | 33060 | `127.0.0.1:33060` | `mysql.service` |
 
 ## Changelog
+
+- 2026-11-26: OpenMap claims 19021–19039 (see curated table). The 19031/19032/19098 listeners were leftover test APIs (not nginx upstreams; dev and prod are served by `openmap-api@{dev,prod}` on 19021/19022) and are being stopped. The engine tunnel moves 18002 (Valhalla, was inside OpenFix 18001–18004) → 19036 and 12322 (Photon) → 19035; 18002 and 12322 are released once the move is verified.
 
 - 2026-11-26: Registry created (no prior fleet registry existed in open-group-ai, master-execute, prod-public-eu-01 or Mac48 agent-system). Resolved the OpenLegal/OpenOrder dev conflict: OpenLegal keeps prod 19801–19803 and dev moves to 19831–19833; 19811–19814 formally reassigned to OpenOrder dev; OpenOrder prod 19821–19824. No running service was changed.
