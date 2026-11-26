@@ -4,6 +4,8 @@ This file is the global rule set for every repository in the `open-group-ai` org
 
 Keep this file short. Put long guides in the owning repo and leave a pointer here.
 
+Ports: the fleet port registry is [`PORTS.md`](PORTS.md) in this repo. Claim a port block there (PR) before binding it on any shared host.
+
 OpenClaw Controller / NSVX lives here (`openclaw`, `openclaw-nsvx`, `nsvx-web`, `grow-ops`, and related apps). Follow each repo’s own AGENTS.md (OpenClaw’s root file must stay under 20,000 characters).
 
 ## What every Open Group agent does
