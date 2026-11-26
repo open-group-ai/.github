@@ -19,6 +19,7 @@ Last verified: 2026-11-26 10:50 Asia/Jerusalem, from `ss -ltnp` + systemd cgroup
 | OpenHealth | prod / dev | 19701–19703 / 19711–19713 | api, worker, redis | systemd units |
 | OpenBook | prod / dev | 20101–20103 / 20111–20113 | none yet (requested by openbook.run 2026-11-26; free at verification) | openbook.run |
 | OpenStar | prod / dev | 20201–20203 / 20211–20213 | none yet (claim by openstar.run 2026-11-26: api, worker, reserved; free at `ss -ltnp` 2026-11-26 12:32 Asia/Jerusalem) | openstar.run |
+| OpenVideo | prod / dev | 20301–20305 / 20311–20315 | none yet (claimed by openvideo.run 2026-11-26; free at `sudo ss -ltnp` 2026-11-26 12:54 and re-checked 13:47 Asia/Jerusalem, no nginx/systemd references). Roles: N01 web, N02 api, N03 worker health, N04 render worker, N05 redis | open-group-ai/openvideo AGENTS.md |
 | OpenVisa | prod / dev | 20501–20509 / 20511–20519 (block 20500–20519) | none yet (block reassigned by Boss 2026-11-26 after OpenStar took 202xx; `ss -ltnp` on prod-public-eu-01 shows 20500–20519 free at 12:57 Asia/Jerusalem; no open PR overlaps) | openvisa.run |
 | OpenPlay | prod / dev | 20601–20609 / 20611–20619 (block 20600–20619) | none yet (claim by openplay.run 2026-11-26: api, worker, realtime/multiplayer, redis, reserved; free at `sudo ss -ltnp` on prod-public-eu-01 2026-11-26 13:13 and absent from this file and open PRs #7/#8/#12/#13) | openplay.run (open-group-ai/openplay) |
 | OpenArt | prod / dev | 20401–20409 / 20411–20419 | none yet (claim by openart.run 2026-11-26: api blue/green, worker health, renderer, reserved; free at `sudo ss -ltnp` on prod-public-eu-01 2026-11-26 12:58 and re-checked 13:16 Asia/Jerusalem; absent from this file and the host copy) | openart.run (open-group-ai/openart) |
@@ -190,6 +191,7 @@ Verified 2026-11-26 12:50 Asia/Jerusalem with `ss -ltnp` on prod-adult-eu-01: 18
 
 ## Changelog
 
+- 2026-11-26: OpenVideo claims prod 20301–20305 and dev 20311–20315 on prod-public-eu-01 (moved from 202xx after OpenStar #11; nothing listening and no nginx/systemd references at 12:54, re-checked 13:47 Asia/Jerusalem).
 - 2026-11-26: OpenArt claims 20400–20419 on prod-public-eu-01 (prod 20401–20409, dev 20411–20419). Nothing bound yet; no other entry changed.
 - 2026-11-26: OpenPlay claims 20600–20619 on prod-public-eu-01 (prod 20601–20609, dev 20611–20619). Earlier candidate 20201–20213 was already OpenStar's (#11). No running service changed.
 - 2026-11-26: OpenVisa claims 20500–20519 (prod 20501–20509, dev 20511–20519). Replaces the withdrawn 20200–20219 claim (PR #9), which collided with OpenStar. Nothing bound yet; no other entry changed.
