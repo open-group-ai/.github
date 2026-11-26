@@ -18,6 +18,7 @@ Last verified: 2026-11-26 10:50 Asia/Jerusalem, from `ss -ltnp` + systemd cgroup
 | OpenBrain | dev | 19911–19918, 19921–19922 | 19911 api, 19912 web, 19913 worker, 19917 redis, 19918 model bridge; 19921/19922 green slots (nginx) | `/etc/nginx/conf.d/openbrain-dev-upstreams.conf` |
 | OpenHealth | prod / dev | 19701–19703 / 19711–19713 | api, worker, redis | systemd units |
 | OpenBook | prod / dev | 20101–20103 / 20111–20113 | none yet (requested by openbook.run 2026-11-26; free at verification) | openbook.run |
+| Claudia | prod / dev | 20701–20705 / 20711–20715 | none yet (N01 web, N02 api, N03 worker health, N04 redis, N05 reserved; requested by Claudia 2026-11-26; free at verification) | open-group-ai/claudia |
 | OpenStar | prod / dev | 20201–20203 / 20211–20213 | none yet (claim by openstar.run 2026-11-26: api, worker, reserved; free at `ss -ltnp` 2026-11-26 12:32 Asia/Jerusalem) | openstar.run |
 | OpenVideo | prod / dev | 20301–20305 / 20311–20315 | none yet (claimed by openvideo.run 2026-11-26; free at `sudo ss -ltnp` 2026-11-26 12:54 and re-checked 13:47 Asia/Jerusalem, no nginx/systemd references). Roles: N01 web, N02 api, N03 worker health, N04 render worker, N05 redis | open-group-ai/openvideo AGENTS.md |
 | OpenVisa | prod / dev | 20501–20509 / 20511–20519 (block 20500–20519) | none yet (block reassigned by Boss 2026-11-26 after OpenStar took 202xx; `ss -ltnp` on prod-public-eu-01 shows 20500–20519 free at 12:57 Asia/Jerusalem; no open PR overlaps) | openvisa.run |
