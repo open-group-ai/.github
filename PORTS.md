@@ -17,6 +17,8 @@ Last verified: 2026-11-26 10:50 Asia/Jerusalem, from `ss -ltnp` + systemd cgroup
 | OpenBrain | prod | 19901–19907, 19923–19924 | 19901 api, 19902 web, 19903 worker, 19907 redis; 19923/19924 green slots (nginx) | `/etc/nginx/conf.d/openbrain-prod-upstreams.conf` |
 | OpenBrain | dev | 19911–19918, 19921–19922 | 19911 api, 19912 web, 19913 worker, 19917 redis, 19918 model bridge; 19921/19922 green slots (nginx) | `/etc/nginx/conf.d/openbrain-dev-upstreams.conf` |
 | OpenHealth | prod / dev | 19701–19703 / 19711–19713 | api, worker, redis | systemd units |
+| OpenMove | prod | 19301–19309 | none yet (prod not provisioned at verification). Planned, mirroring dev slots: 19302 api / 19303 worker health (slot b), 19304 api / 19305 worker health (slot a); 19301 reserved (web is static nginx, no listener) | openmove `docs-dev-openmove` spec 12 §2; OpenMove claim 2026-11-26 |
+| OpenMove | dev | 19311–19319 | 19312 api + 19313 worker health (`openmove-dev-{api,worker}-slot@b`, active); 19314 api + 19315 worker health configured for idle slot a (`/etc/openmove/dev-slot-a.env`); 19311 reserved (web is static nginx) | `/etc/nginx/sites-enabled/openmove-dev.conf` → 19312; openmove `deploy/dev/rollout.sh` A/B slots |
 | OpenBook | prod / dev | 20101–20103 / 20111–20113 | none yet (requested by openbook.run 2026-11-26; free at verification) | openbook.run |
 
 Other app blocks are listed in the live table below; promote them to this curated table when the owning app confirms its block.
@@ -175,4 +177,5 @@ Other app blocks are listed in the live table below; promote them to this curate
 
 ## Changelog
 
+- 2026-11-26: OpenMove claims 19300–19319 (prod 19301–19309, dev 19311–19319). Verified on prod-public-eu-01: every live OpenMove listener (19312/19313, slot b) and the idle slot a (19314/19315) is dev; no prod listener exists, so the claim matches reality and no running service moves.
 - 2026-11-26: Registry created (no prior fleet registry existed in open-group-ai, master-execute, prod-public-eu-01 or Mac48 agent-system). Resolved the OpenLegal/OpenOrder dev conflict: OpenLegal keeps prod 19801–19803 and dev moves to 19831–19833; 19811–19814 formally reassigned to OpenOrder dev; OpenOrder prod 19821–19824. No running service was changed.
