@@ -75,10 +75,8 @@ Other app blocks are listed in the live table below; promote them to this curate
 | 9701 | `127.0.0.1:9701` | `openfood-api@dev.service` |
 | 9715 | `127.0.0.1:9715` | `openfood-api@dev.service` |
 | 10587 | `127.0.0.1:10587` | `postfix.service` |
-| 12322 | `127.0.0.1:12322` | `openmap-engine-tunnel.service` |
 | 15432 | `127.0.0.1:15432` | `mb-pg16-tunnel.service` |
 | 18001 | `127.0.0.1:18001` | `openfix-prod-api@1.service` |
-| 18002 | `127.0.0.1:18002` | `openmap-engine-tunnel.service` |
 | 18003 | `127.0.0.1:18003` | `openfix-prod-worker.service` |
 | 18004 | `127.0.0.1:18004` | `openfix-prod-api@2.service` |
 | 18011 | `127.0.0.1:18011` | `openfix-dev-api@1.service` |
@@ -121,10 +119,9 @@ Other app blocks are listed in the live table below; promote them to this curate
 | 19014 | `127.0.0.1:19014` | `openagents-dev-mailpit.service` |
 | 19015 | `127.0.0.1:19015` | `openagents-dev-mailpit.service` |
 | 19021 | `127.0.0.1:19021` | `openmap-api@dev.service` |
-| 19022 | `127.0.0.1:19022` | `openmap-api@prod.service` |
-| 19031 | `127.0.0.1:19031` | `session-55125.scope` |
-| 19032 | `127.0.0.1:19032` | `session-55291.scope` |
-| 19098 | `127.0.0.1:19098` | `session-40672.scope` |
+| 19022 | `127.0.0.1:19022` | `openmap-api@prod.service` (socket `openmap-api@prod.socket`)` |
+| 19035 | `127.0.0.1:19035` | `openmap-photon-tunnel.service` |
+| 19036 | `127.0.0.1:19036` | `openmap-valhalla-tunnel.service` |
 | 19111 | `127.0.0.1:19111` | `openbusiness-dev-api.service` |
 | 19112 | `127.0.0.1:19112` | `openbusiness-dev-worker.service` |
 | 19201 | `127.0.0.1:19201` | `openbuy-prod-fpm.service` |
@@ -174,6 +171,6 @@ Other app blocks are listed in the live table below; promote them to this curate
 
 ## Changelog
 
-- 2026-11-26: OpenMap claims 19021–19039 (see curated table). The 19031/19032/19098 listeners were leftover test APIs (not nginx upstreams; dev and prod are served by `openmap-api@{dev,prod}` on 19021/19022) and are being stopped. The engine tunnel moves 18002 (Valhalla, was inside OpenFix 18001–18004) → 19036 and 12322 (Photon) → 19035; 18002 and 12322 are released once the move is verified.
+- 2026-11-26: OpenMap claims 19021–19039 (see curated table). The 19031/19032/19098 listeners were leftover test APIs (not nginx upstreams; dev and prod are served by `openmap-api@{dev,prod}` on 19021/19022) and were stopped 10:52 Asia/Jerusalem. The engine tunnel moved 18002 (Valhalla, was inside OpenFix 18001–18004) → 19036 and 12322 (Photon) → 19035 as `openmap-valhalla-tunnel` / `openmap-photon-tunnel` (user `openmap-tunnel`); `openmap-engine-tunnel` stopped and disabled 10:56, so 12322 and 18002 are free. OpenMap snapshot rows refreshed 10:58.
 
 - 2026-11-26: Registry created (no prior fleet registry existed in open-group-ai, master-execute, prod-public-eu-01 or Mac48 agent-system). Resolved the OpenLegal/OpenOrder dev conflict: OpenLegal keeps prod 19801–19803 and dev moves to 19831–19833; 19811–19814 formally reassigned to OpenOrder dev; OpenOrder prod 19821–19824. No running service was changed.
