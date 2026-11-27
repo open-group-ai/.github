@@ -26,6 +26,7 @@ Last verified: 2026-11-26 10:50 Asia/Jerusalem, from `ss -ltnp` + systemd cgroup
 | OpenArt | prod / dev | 20401–20409 / 20411–20419 | none yet (claim by openart.run 2026-11-26: api blue/green, worker health, renderer, reserved; free at `sudo ss -ltnp` on prod-public-eu-01 2026-11-26 12:58 and re-checked 13:16 Asia/Jerusalem; absent from this file and the host copy) | openart.run (open-group-ai/openart) |
 
 | og-connect (Universal Connect AI) | prod / dev | 21001–21005 / 21011–21015 (block 21000–21019) | none yet (claim by Boss 2026-11-26 for open-group-ai/og-connect: N01 api, N02 hosted web, N03 worker/events, N04 redis, N05 reserved; `sudo ss -ltnH` on prod-public-eu-01 at 14:10 Asia/Jerusalem shows no listeners in 210xx; absent from this file; 207xx/208xx held by open PRs #16/#18). Note: first block above the 18000–20999 convention because 180xx–209xx are allocated or claimed | open-group-ai/og-connect |
+| Open Farm | prod / dev | 18201–18209 / 18211–18219 (block 18200–18219) | none yet (N01 api, N02 worker health; `ss -ltnH` on prod-public-eu-01 2026-11-27 shows no listeners in 182xx; absent from this file and open PRs) | open-group-ai/openfarm `deploy/`, `packages/core/src/env.ts` |
 Other app blocks are listed in the live table below; promote them to this curated table when the owning app confirms its block.
 
 ## prod-adult-eu-01 (51.77.85.223) — allocated app blocks (curated)
@@ -193,6 +194,7 @@ Verified 2026-11-26 12:50 Asia/Jerusalem with `ss -ltnp` on prod-adult-eu-01: 18
 
 ## Changelog
 
+- 2026-11-27: Open Farm claims 18200–18219 on prod-public-eu-01 (prod API 18201 / worker 18202, dev API 18211 / worker 18212). Nothing bound at 182xx; no other entry changed.
 - 2026-11-27: OpenForm claims 21900–21919 on prod-public-eu-01 (prod 21901–21909, dev 21911–21919; API 21901/21911, worker 21902/21912). Nothing bound at 21900–21999 at 09:07 UTC; no other entry changed.
 - 2026-11-26: OpenVideo claims prod 20301–20305 and dev 20311–20315 on prod-public-eu-01 (moved from 202xx after OpenStar #11; nothing listening and no nginx/systemd references at 12:54, re-checked 13:47 Asia/Jerusalem).
 - 2026-11-26: OpenArt claims 20400–20419 on prod-public-eu-01 (prod 20401–20409, dev 20411–20419). Nothing bound yet; no other entry changed.
