@@ -28,7 +28,7 @@ Last verified: 2026-11-26 10:50 Asia/Jerusalem, from `ss -ltnp` + systemd cgroup
 
 | og-connect (Universal Connect AI) | prod / dev | 21001–21005 / 21011–21015 (block 21000–21019) | none yet (claim by Boss 2026-11-26 for open-group-ai/og-connect: N01 api, N02 hosted web, N03 worker/events, N04 redis, N05 reserved; `sudo ss -ltnH` on prod-public-eu-01 at 14:10 Asia/Jerusalem shows no listeners in 210xx; absent from this file; 207xx/208xx held by open PRs #16/#18). Note: first block above the 18000–20999 convention because 180xx–209xx are allocated or claimed | open-group-ai/og-connect |
 | OpenMeeting | prod / dev | 22401–22405 / 22411–22415 (block 22400–22419) | none yet (claim by openmeeting.run 2026-11-27: N01 api+web (in-process worker), N02 reserved worker health, N03–N05 reserved; `sudo ss -ltnH` and nginx/systemd grep on prod-public-eu-01 show nothing in 224xx; absent from this file and open PRs) | open-group-ai/openmeeting |
-| OpenHost | prod / dev | 22501–22505 / 22511–22515 (block 22500–22519) | none yet (claim by openhost.run 2026-11-27: N01 api+web, N02 worker health, N03–N05 reserved; `sudo ss -ltnH` and nginx/systemd grep on prod-public-eu-01 show nothing in 225xx; absent from this file and open PRs) | open-group-ai/openhost |
+| OpenHost | prod / dev | 23501–23505 / 23511–23515 (block 23500–23519) | none yet (claim by openhost.run 2026-11-27: N01 api+web, N02 worker health, N03–N05 reserved; `sudo ss -ltnH` and nginx/systemd grep on prod-public-eu-01 show nothing in 235xx; absent from this file and open PRs) | open-group-ai/openhost |
 Other app blocks are listed in the live table below; promote them to this curated table when the owning app confirms its block.
 
 ## prod-adult-eu-01 (51.77.85.223) — allocated app blocks (curated)
@@ -196,7 +196,7 @@ Verified 2026-11-26 12:50 Asia/Jerusalem with `ss -ltnp` on prod-adult-eu-01: 18
 
 ## Changelog
 
-- 2026-11-27: OpenHost claims 22500–22519 on prod-public-eu-01 (prod 22501–22505, dev 22511–22515; N01 api+web, N02 worker health). Nothing bound at 225xx; no other entry changed.
+- 2026-11-27: OpenHost claims 23500–23519 on prod-public-eu-01 (prod 23501–23505, dev 23511–23515; N01 api+web, N02 worker health). Nothing bound at 235xx; no other entry changed.
 - 2026-11-27: OpenMeeting claims 22400–22419 on prod-public-eu-01 (prod 22401–22405, dev 22411–22415). Nothing bound at 224xx; no other entry changed.
 - 2026-11-27: OpenForm claims 21900–21919 on prod-public-eu-01 (prod 21901–21909, dev 21911–21919; API 21901/21911, worker 21902/21912). Nothing bound at 21900–21999 at 09:07 UTC; no other entry changed.
 - 2026-11-26: OpenVideo claims prod 20301–20305 and dev 20311–20315 on prod-public-eu-01 (moved from 202xx after OpenStar #11; nothing listening and no nginx/systemd references at 12:54, re-checked 13:47 Asia/Jerusalem).
