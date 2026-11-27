@@ -23,6 +23,7 @@ Last verified: 2026-11-26 10:50 Asia/Jerusalem, from `ss -ltnp` + systemd cgroup
 | OpenVideo | prod / dev | 20301–20305 / 20311–20315 | none yet (claimed by openvideo.run 2026-11-26; free at `sudo ss -ltnp` 2026-11-26 12:54 and re-checked 13:47 Asia/Jerusalem, no nginx/systemd references). Roles: N01 web, N02 api, N03 worker health, N04 render worker, N05 redis | open-group-ai/openvideo AGENTS.md |
 | OpenVisa | prod / dev | 20501–20509 / 20511–20519 (block 20500–20519) | none yet (block reassigned by Boss 2026-11-26 after OpenStar took 202xx; `ss -ltnp` on prod-public-eu-01 shows 20500–20519 free at 12:57 Asia/Jerusalem; no open PR overlaps) | openvisa.run |
 | OpenPlay | prod / dev | 20601–20609 / 20611–20619 (block 20600–20619) | none yet (claim by openplay.run 2026-11-26: api, worker, realtime/multiplayer, redis, reserved; free at `sudo ss -ltnp` on prod-public-eu-01 2026-11-26 13:13 and absent from this file and open PRs #7/#8/#12/#13) | openplay.run (open-group-ai/openplay) |
+| OpenClinic | prod / dev | 22001–22009 / 22011–22019 (block 22000–22019) | none yet (N01 api, N02 worker health, rest reserved; claimed by openclinic.run 2026-11-27; nothing bound at 220xx on prod-public-eu-01 at `ss -ltn` 2026-11-27, and no registry branch claims 220xx) | open-group-ai/openclinic `deploy/` |
 | OpenArt | prod / dev | 20401–20409 / 20411–20419 | none yet (claim by openart.run 2026-11-26: api blue/green, worker health, renderer, reserved; free at `sudo ss -ltnp` on prod-public-eu-01 2026-11-26 12:58 and re-checked 13:16 Asia/Jerusalem; absent from this file and the host copy) | openart.run (open-group-ai/openart) |
 
 | og-connect (Universal Connect AI) | prod / dev | 21001–21005 / 21011–21015 (block 21000–21019) | none yet (claim by Boss 2026-11-26 for open-group-ai/og-connect: N01 api, N02 hosted web, N03 worker/events, N04 redis, N05 reserved; `sudo ss -ltnH` on prod-public-eu-01 at 14:10 Asia/Jerusalem shows no listeners in 210xx; absent from this file; 207xx/208xx held by open PRs #16/#18). Note: first block above the 18000–20999 convention because 180xx–209xx are allocated or claimed | open-group-ai/og-connect |
@@ -193,6 +194,7 @@ Verified 2026-11-26 12:50 Asia/Jerusalem with `ss -ltnp` on prod-adult-eu-01: 18
 
 ## Changelog
 
+- 2026-11-27: OpenClinic claims 22000–22019 on prod-public-eu-01 (prod 22001–22009, dev 22011–22019; API 22001/22011, worker 22002/22012). Nothing bound at 220xx; no other entry changed.
 - 2026-11-27: OpenForm claims 21900–21919 on prod-public-eu-01 (prod 21901–21909, dev 21911–21919; API 21901/21911, worker 21902/21912). Nothing bound at 21900–21999 at 09:07 UTC; no other entry changed.
 - 2026-11-26: OpenVideo claims prod 20301–20305 and dev 20311–20315 on prod-public-eu-01 (moved from 202xx after OpenStar #11; nothing listening and no nginx/systemd references at 12:54, re-checked 13:47 Asia/Jerusalem).
 - 2026-11-26: OpenArt claims 20400–20419 on prod-public-eu-01 (prod 20401–20409, dev 20411–20419). Nothing bound yet; no other entry changed.
