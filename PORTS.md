@@ -194,6 +194,7 @@ Verified 2026-11-26 12:50 Asia/Jerusalem with `ss -ltnp` on prod-adult-eu-01: 18
 
 ## Changelog
 
+- 2026-11-27: OpenForm claims 21900–21919 on prod-public-eu-01 (prod 21901–21909, dev 21911–21919; API 21901/21911, worker 21902/21912). Nothing bound at 21900–21999 at 09:07 UTC; no other entry changed.
 - 2026-11-26: OpenAudit claims prod 21201–21205 and dev 21211–21215 (block 21200–21219) on prod-public-eu-01. Nothing bound yet; no other entry changed.
 - 2026-11-26: OpenVideo claims prod 20301–20305 and dev 20311–20315 on prod-public-eu-01 (moved from 202xx after OpenStar #11; nothing listening and no nginx/systemd references at 12:54, re-checked 13:47 Asia/Jerusalem).
 - 2026-11-26: OpenArt claims 20400–20419 on prod-public-eu-01 (prod 20401–20409, dev 20411–20419). Nothing bound yet; no other entry changed.
