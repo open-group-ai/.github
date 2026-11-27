@@ -26,7 +26,7 @@ Last verified: 2026-11-26 10:50 Asia/Jerusalem, from `ss -ltnp` + systemd cgroup
 | OpenArt | prod / dev | 20401–20409 / 20411–20419 | none yet (claim by openart.run 2026-11-26: api blue/green, worker health, renderer, reserved; free at `sudo ss -ltnp` on prod-public-eu-01 2026-11-26 12:58 and re-checked 13:16 Asia/Jerusalem; absent from this file and the host copy) | openart.run (open-group-ai/openart) |
 
 | og-connect (Universal Connect AI) | prod / dev | 21001–21005 / 21011–21015 (block 21000–21019) | none yet (claim by Boss 2026-11-26 for open-group-ai/og-connect: N01 api, N02 hosted web, N03 worker/events, N04 redis, N05 reserved; `sudo ss -ltnH` on prod-public-eu-01 at 14:10 Asia/Jerusalem shows no listeners in 210xx; absent from this file; 207xx/208xx held by open PRs #16/#18). Note: first block above the 18000–20999 convention because 180xx–209xx are allocated or claimed | open-group-ai/og-connect |
-| OpenInvoice | prod / dev | 21701–21705 / 21711–21715 (block 21700–21719) | none yet (claim by openinvoice.run 2026-11-27: N01 api+web, N02 worker health, N03–N05 reserved; `ss -ltn` on prod-public-eu-01 2026-11-27 shows no listeners in 217xx and no nginx/systemd references; absent from this file and open PRs #7/#8/#18/#20/#21) | open-group-ai/openinvoice |
+| OpenInvoice | prod / dev | 25301–25305 / 25311–25315 (block 25300–25319) | prod 25301 api+web (`openinvoice-prod-api`), 25302 worker health (`openinvoice-prod-worker`); dev 25311 api+web (`openinvoice-dev-api`), 25312 worker health (`openinvoice-dev-worker`); N03–N05 reserved. Moved 2026-11-27 from 21700–21719 after `openauction-prod-api`/`-worker` bound 21701/21702 (13:40 IST) without a claim; 253xx free at `sudo ss -ltnpH` 2026-11-27 ~12:20 UTC, absent from nginx, systemd, this file and all open .github PR diffs | open-group-ai/openinvoice `deploy/` |
 Other app blocks are listed in the live table below; promote them to this curated table when the owning app confirms its block.
 
 ## prod-adult-eu-01 (51.77.85.223) — allocated app blocks (curated)
@@ -41,6 +41,8 @@ Adult apps only (separate host from prod-public-eu-01; numbers may repeat across
 Verified 2026-11-26 12:50 Asia/Jerusalem with `ss -ltnp` on prod-adult-eu-01: 18800, 18801, 18811, 18850, 18851, 18861 listening; 18802/18852 idle (B slots).
 
 ## Known irregularities (2026-11-26, not yet fixed)
+
+- 21701 / 21702: `openauction-prod-api` / `openauction-prod-worker` (since 2026-11-27 13:40 IST) have no registry claim; OpenAuction's code defaults dev to 21711/21712. Owner: OpenAuction; claim 21700–21719 here.
 
 - 19031 / 19032 / 19098: OpenMap API processes (`node apps/api/src/server.ts`) running outside systemd in login sessions (19031 dev with deleted cwd, 19032 prod, 19098 places bootstrap). Owner: OpenMap; move into units or stop.
 - 18002: `openmap-engine-tunnel` (Valhalla forward) sits inside OpenFix's 18001–18004 block.
@@ -194,7 +196,7 @@ Verified 2026-11-26 12:50 Asia/Jerusalem with `ss -ltnp` on prod-adult-eu-01: 18
 
 ## Changelog
 
-- 2026-11-27: OpenInvoice claims prod 21701–21705 and dev 21711–21715 (block 21700–21719) on prod-public-eu-01. Nothing bound yet; no other entry changed.
+- 2026-11-27: OpenInvoice claims prod 25301–25305 and dev 25311–25315 (block 25300–25319) on prod-public-eu-01, replacing its earlier unmerged 21700–21719 claim. `openauction-prod-api`/`-worker` hold 21701/21702 without a registry entry, and OpenAuction's dev default (21711/21712) overlaps that block, so OpenAuction should claim it. No other entry changed.
 - 2026-11-26: OpenVideo claims prod 20301–20305 and dev 20311–20315 on prod-public-eu-01 (moved from 202xx after OpenStar #11; nothing listening and no nginx/systemd references at 12:54, re-checked 13:47 Asia/Jerusalem).
 - 2026-11-26: OpenArt claims 20400–20419 on prod-public-eu-01 (prod 20401–20409, dev 20411–20419). Nothing bound yet; no other entry changed.
 - 2026-11-26: OpenPlay claims 20600–20619 on prod-public-eu-01 (prod 20601–20609, dev 20611–20619). Earlier candidate 20201–20213 was already OpenStar's (#11). No running service changed.
