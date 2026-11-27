@@ -32,6 +32,8 @@ Last verified: 2026-11-26 10:50 Asia/Jerusalem, from `ss -ltnp` + systemd cgroup
 | OpenMeeting | prod / dev | 22401–22405 / 22411–22415 (block 22400–22419) | none yet (claim by openmeeting.run 2026-11-27: N01 api+web (in-process worker), N02 reserved worker health, N03–N05 reserved; `sudo ss -ltnH` and nginx/systemd grep on prod-public-eu-01 show nothing in 224xx; absent from this file and open PRs) | open-group-ai/openmeeting |
 Other app blocks are listed in the live table below; promote them to this curated table when the owning app confirms its block.
 
+| OpenSales | prod / dev | 25401–25409 / 25411–25419 (block 25400–25419) | none yet (claim by opensales.run 2026-11-27: N01 api+web, N02 worker health, N03–N09 reserved; 254xx free at `ss -tlnH` 2026-11-27 and absent from nginx, systemd, this file and all open .github PRs) | opensales.run (open-group-ai/opensales) |
+
 ## prod-adult-eu-01 (51.77.85.223) — allocated app blocks (curated)
 
 Adult apps only (separate host from prod-public-eu-01; numbers may repeat across hosts without clashing).
@@ -197,6 +199,7 @@ Verified 2026-11-26 12:50 Asia/Jerusalem with `ss -ltnp` on prod-adult-eu-01: 18
 
 ## Changelog
 
+- 2026-11-27: OpenSales claims 25400–25419 on prod-public-eu-01 (prod 25401–25409, dev 25411–25419; API+web 25401/25411, worker 25402/25412). Nothing bound at 254xx; no open PR overlaps; no other entry changed.
 - 2026-11-27: OpenPDF moves to 25200–25219 (prod 25201–25209, dev 25211–25219). OpenAvatar started on 22801–22802 and 22811–22812 without a claim; recorded as observed. No running service changed.
 - 2026-11-27: OpenPDF moves to 22800–22819 (prod 22801–22809, dev 22811–22819). Its earlier block 22300–22319 (#28) is bound by OpenCRM, recorded here as observed. No running service changed.
 - 2026-11-27: OpenMeeting claims 22400–22419 on prod-public-eu-01 (prod 22401–22405, dev 22411–22415). Nothing bound at 224xx; no other entry changed.
