@@ -29,6 +29,7 @@ Last verified: 2026-11-26 10:50 Asia/Jerusalem, from `ss -ltnp` + systemd cgroup
 
 | og-connect (Universal Connect AI) | prod / dev | 21001–21005 / 21011–21015 (block 21000–21019) | none yet (claim by Boss 2026-11-26 for open-group-ai/og-connect: N01 api, N02 hosted web, N03 worker/events, N04 redis, N05 reserved; `sudo ss -ltnH` on prod-public-eu-01 at 14:10 Asia/Jerusalem shows no listeners in 210xx; absent from this file; 207xx/208xx held by open PRs #16/#18). Note: first block above the 18000–20999 convention because 180xx–209xx are allocated or claimed | open-group-ai/og-connect |
 | OpenMeeting | prod / dev | 22401–22405 / 22411–22415 (block 22400–22419) | none yet (claim by openmeeting.run 2026-11-27: N01 api+web (in-process worker), N02 reserved worker health, N03–N05 reserved; `sudo ss -ltnH` and nginx/systemd grep on prod-public-eu-01 show nothing in 224xx; absent from this file and open PRs) | open-group-ai/openmeeting |
+| OpenGame | prod / dev | 23001–23009 / 23011–23019 (block 23000–23019) | none yet (claim by opengame.run 2026-11-27: N01 api+web, N02 worker health, N03–N09 reserved; `ss -tlnH` and nginx/systemd grep on prod-public-eu-01 show nothing in 230xx; absent from this file and open PRs #2–#31) | open-group-ai/opengame |
 Other app blocks are listed in the live table below; promote them to this curated table when the owning app confirms its block.
 
 ## prod-adult-eu-01 (51.77.85.223) — allocated app blocks (curated)
@@ -195,6 +196,8 @@ Verified 2026-11-26 12:50 Asia/Jerusalem with `ss -ltnp` on prod-adult-eu-01: 18
 | 33060 | `127.0.0.1:33060` | `mysql.service` |
 
 ## Changelog
+
+- 2026-11-27: OpenGame claims 23000–23019 on prod-public-eu-01 (prod 23001–23009, dev 23011–23019; API+web 23001/23011, worker 23002/23012). Nothing bound at 230xx; no other entry changed.
 
 - 2026-11-27: OpenPDF moves to 22800–22819 (prod 22801–22809, dev 22811–22819). Its earlier block 22300–22319 (#28) is bound by OpenCRM, recorded here as observed. No running service changed.
 - 2026-11-27: OpenMeeting claims 22400–22419 on prod-public-eu-01 (prod 22401–22405, dev 22411–22415). Nothing bound at 224xx; no other entry changed.
