@@ -198,6 +198,8 @@ Verified 2026-11-26 12:50 Asia/Jerusalem with `ss -ltnp` on prod-adult-eu-01: 18
 
 ## Changelog
 
+- 2026-11-27: OpenRobot (`openrobot.run`) claims `27600–27619` on `prod-public-eu-01` (prod `27601` API+Web / `27602` worker, dev `27611` API+Web / `27612` worker). Verified nothing bound in `27500–27999` and zero nginx/systemd/PR conflicts; no other entry changed.
+
 - 2026-11-27: OpenLogistics claims 23600–23619 on prod-public-eu-01 (prod 23601–23609, dev 23611–23619; API+web 23601/23611, worker health 23602/23612, optional redis 23607/23617). Nothing bound at 236xx and no nginx/systemd/PR conflicts; no other entry changed.
 - 2026-11-27: OpenPDF moves to 25200–25219 (prod 25201–25209, dev 25211–25219). OpenAvatar started on 22801–22802 and 22811–22812 without a claim; recorded as observed. No running service changed.
 - 2026-11-27: OpenPDF moves to 22800–22819 (prod 22801–22809, dev 22811–22819). Its earlier block 22300–22319 (#28) is bound by OpenCRM, recorded here as observed. No running service changed.
