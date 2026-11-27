@@ -31,6 +31,7 @@ Last verified: 2026-11-26 10:50 Asia/Jerusalem, from `ss -ltnp` + systemd cgroup
 | og-connect (Universal Connect AI) | prod / dev | 21001–21005 / 21011–21015 (block 21000–21019) | none yet (claim by Boss 2026-11-26 for open-group-ai/og-connect: N01 api, N02 hosted web, N03 worker/events, N04 redis, N05 reserved; `sudo ss -ltnH` on prod-public-eu-01 at 14:10 Asia/Jerusalem shows no listeners in 210xx; absent from this file; 207xx/208xx held by open PRs #16/#18). Note: first block above the 18000–20999 convention because 180xx–209xx are allocated or claimed | open-group-ai/og-connect |
 | OpenMeeting | prod / dev | 22401–22405 / 22411–22415 (block 22400–22419) | none yet (claim by openmeeting.run 2026-11-27: N01 api+web (in-process worker), N02 reserved worker health, N03–N05 reserved; `sudo ss -ltnH` and nginx/systemd grep on prod-public-eu-01 show nothing in 224xx; absent from this file and open PRs) | open-group-ai/openmeeting |
 | OpenLogistics | prod / dev | 23601–23609 / 23611–23619 (block 23600–23619) | none yet (claim by openlogistics.run 2026-11-27: N01 api+web, N02 worker health, N03–N06 reserved, N07 optional redis, N08–N09 reserved; `sudo ss -tlnp` and nginx/systemd grep on prod-public-eu-01 show nothing in 236xx; absent from this file and all open PRs) | open-group-ai/docs-dev-openlogistics `docs/INFRA-INVENTORY.md` |
+| OpenInference | prod / dev | 28601–28609 / 28611–28619 (block 28600–28619) | live: `openinference-api@prod` 28601, `openinference-worker@prod` 28602, `openinference-api@dev` 28611, `openinference-worker@dev` 28612; N03–N09 reserved (verified free via `sudo ss -tlnp` on prod-public-eu-01 2026-11-27; zero conflicts in PORTS.md or open PRs) | open-group-ai/openinference (`deploy/nginx/*`, `deploy/systemd/*`) |
 Other app blocks are listed in the live table below; promote them to this curated table when the owning app confirms its block.
 
 ## prod-adult-eu-01 (51.77.85.223) — allocated app blocks (curated)
@@ -198,6 +199,7 @@ Verified 2026-11-26 12:50 Asia/Jerusalem with `ss -ltnp` on prod-adult-eu-01: 18
 
 ## Changelog
 
+- 2026-11-27: OpenInference claims 28600–28619 on prod-public-eu-01 (prod 28601–28609, dev 28611–28619; API+web 28601/28611, worker health 28602/28612). Live listeners verified and absent from PORTS.md and all open PRs; no other entry changed.
 - 2026-11-27: OpenLogistics claims 23600–23619 on prod-public-eu-01 (prod 23601–23609, dev 23611–23619; API+web 23601/23611, worker health 23602/23612, optional redis 23607/23617). Nothing bound at 236xx and no nginx/systemd/PR conflicts; no other entry changed.
 - 2026-11-27: OpenPDF moves to 25200–25219 (prod 25201–25209, dev 25211–25219). OpenAvatar started on 22801–22802 and 22811–22812 without a claim; recorded as observed. No running service changed.
 - 2026-11-27: OpenPDF moves to 22800–22819 (prod 22801–22809, dev 22811–22819). Its earlier block 22300–22319 (#28) is bound by OpenCRM, recorded here as observed. No running service changed.
